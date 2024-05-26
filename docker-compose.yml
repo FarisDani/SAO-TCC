@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  php-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.php
+    ports:
+      - "8080:80"
+    volumes:
+      - ./php-app:/var/www/html
+
+  node-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./node-app:/usr/src/app
