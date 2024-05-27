@@ -40,6 +40,21 @@ Sedekah.findById = function(id, result) {
   });
 };
 
+Sedekah.update = function(id, sedekah, result) {
+  dbConn.query(
+    "UPDATE sedekah SET jenis=? WHERE id = ?",
+    [sedekah.jenis, id],
+    function(err, res) {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+      } else {
+        result(null, res);
+      }
+    }
+  );
+};
+
 Sedekah.delete = function(id, result) {
   dbConn.query("DELETE FROM sedekah WHERE id = ?", id, function(err, res) {
     if (err) {
