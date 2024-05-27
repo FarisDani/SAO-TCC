@@ -13,6 +13,9 @@ RUN npm install
 # Menyalin sisa kode aplikasi ke container
 COPY . .
 
+# Install ekstensi mysqli yang diperlukan
+RUN docker-php-ext-install mysqli
+
 # Expose port yang akan digunakan aplikasi (sesuaikan dengan aplikasi kamu)
 EXPOSE 8080
 
