@@ -5,7 +5,7 @@ FROM node:18
 WORKDIR /usr/src/app
 
 # Menyalin package.json dan package-lock.json ke direktori kerja
-COPY ./package*.json ./
+COPY package*.json ./
 
 # Menginstall dependencies
 RUN npm install
