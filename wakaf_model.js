@@ -40,7 +40,20 @@ Wakaf.findById = function(id, result) {
   });
 };
 
-
+Wakaf.update = function(id, wakaf, result) {
+  dbConn.query(
+    "UPDATE wakaf SET jenis=? WHERE id = ?",
+    [wakaf.jenis, id],
+    function(err, res) {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+      } else {
+        result(null, res);
+      }
+    }
+  );
+};
 
 Wakaf.delete = function(id, result) {
   dbConn.query("DELETE FROM wakaf WHERE id = ?", id, function(err, res) {
